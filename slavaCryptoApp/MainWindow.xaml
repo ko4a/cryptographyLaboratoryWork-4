@@ -1,0 +1,51 @@
+﻿<Window x:Class="slavaCryptoApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:slavaCryptoApp"
+        mc:Ignorable="d"
+        Title="Лабораторная работа по криптографии №4" Height="500" Width="500">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*" />
+            <RowDefinition Height="380*"  />
+        </Grid.RowDefinitions>
+
+        <Button Background="Red" 
+                Margin="10,16,120,50" 
+                Click="ShowMeKeysButtonClick" 
+                x:Name ="ShowMeKeysButton" 
+                Grid.Column="0" 
+                Grid.Row="0"
+                Content="Посмотреть ключи" 
+                />
+
+        <Button x:Name="SignFileButton"
+                Click="SignFileButtonClick"
+                Grid.Column="1"
+                Grid.Row="0"
+                Margin="120,16,10,50"
+                Content="Подписать файл."
+                Background="Pink"
+                />
+
+ 
+        <Button x:Name="VerifyFileButton"
+            Click="VerifyFileButtonClick"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            Margin="129,44,127,22"
+            Content="Проверить файл"
+            Background="YellowGreen"
+                />
+
+
+
+    </Grid>
+
+</Window>

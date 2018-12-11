@@ -1,0 +1,25 @@
+﻿<Window x:Class="slavaCryptoApp.KeysWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:slavaCryptoApp"
+        mc:Ignorable="d"
+        Title="KEYS" Height="500" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*" />
+            <RowDefinition Height="157*" />
+        </Grid.RowDefinitions>
+        <TextBox  AutoWordSelection="True" TextWrapping="Wrap" Name="publicKey" Grid.Row="0" IsReadOnly="True">
+            <TextBox.ToolTip>
+                Это публичный ключ RSA в XML 
+            </TextBox.ToolTip>
+        </TextBox>
+        <TextBox AutoWordSelection="True" TextWrapping="Wrap" Name="SecretKey" Grid.Row="1" IsReadOnly="True">
+            <TextBox.ToolTip>
+                Этот RSA ключ состоит из двух частей, первая - публичный ключ, вторая - секретный.
+            </TextBox.ToolTip>
+        </TextBox>
+    </Grid>
+</Window>
