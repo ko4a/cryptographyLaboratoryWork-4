@@ -27,8 +27,6 @@ namespace slavaCryptoApp
 
             using (var file = new FileStream(path, FileMode.Open))
                 file.Read(resultArray, 0, resultArray.Length);// на самом деле тут не уверен, что правильный размер указал везде.
-              
- 
             return resultArray;
         }
         private void ButtonClick(object sender, RoutedEventArgs e)
