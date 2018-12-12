@@ -11,10 +11,10 @@ namespace slavaCryptoApp
     /// <summary>
     /// Логика взаимодействия для inputSignatureForSign.xaml
     /// </summary>
-    public partial class inputSignatureForSign : Window
+    public partial class InputSignatureForSign : Window
     {
         private static RSA myRSA;
-        public inputSignatureForSign(RSA _myRSA)
+        public InputSignatureForSign(RSA _myRSA)
         {
             InitializeComponent();
             myRSA = _myRSA;

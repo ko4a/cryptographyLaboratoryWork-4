@@ -32,6 +32,7 @@ namespace slavaCryptoApp
             "3KlSlhhQTx+c560=</D></RSAKeyValue>"; // однажды мы его сгенерировали, и он должен всегда оставаться таким.
         private static byte[] Signature { get; set; } = null;
         private static string LastSignedFileName { get; set; } = null;
+        private static string KeyRSAFromUserForEncryptingAes { get; set; } = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -89,64 +90,20 @@ namespace slavaCryptoApp
             }
         }
 
-        public byte[] ImageToByteArray(Image imageIn)
-        {
-            using (var ms = new MemoryStream())
-            {
-                imageIn.Save(ms, imageIn.RawFormat);
-                return ms.ToArray();
-            }
-        }
+       
 
-        private byte[] EncryptPicture(string path)
-        {
-            byte[] resultArray;
-
-            var myImage = Image.FromFile(path);
-            byte[] arrayImage = ImageToByteArray(myImage);
-
-            
-
-            using (var myAes = Aes.Create())
-            {
-                var encryptor = myAes.CreateDecryptor();
-
-                using (MemoryStream msEncrypt = new MemoryStream())
-                {
-                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                        {
-                            //Write all data to the stream.
-                            swEncrypt.Write(Convert.ToBase64String(arrayImage));
-                        }
-                        resultArray = msEncrypt.ToArray();
-                    }
-                }
-            }
+     
 
 
-                return null;
-        }
 
         private void EncryptPictureButtonClick(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog()
-            {
-                Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png"
-            };
-            dlg.ShowDialog();
-            if (dlg.FileName != string.Empty)
-            {
-
-                byte[] encryptedPicture = EncryptPicture(dlg.FileName);
-            }
-            else return;
-
+                InputKeyRSAOtherGroup window = new InputKeyRSAOtherGroup();
+                window.ShowDialog();
         }
         private void VerifyFileButtonClick(object sender, RoutedEventArgs e)
         {
-            inputSignatureForSign inputWindow = new inputSignatureForSign(myRSA);
+            InputSignatureForSign inputWindow = new InputSignatureForSign(myRSA);
             inputWindow.Show();
         }
         private void ShowMeKeysButtonClick(object sender, RoutedEventArgs e)
