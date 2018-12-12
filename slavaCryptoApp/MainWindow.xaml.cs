@@ -5,6 +5,8 @@ using System.IO;
 using System.Text;
 using System;
 using System.Linq;
+using System.Drawing;
+
 namespace slavaCryptoApp
 {
     /// <summary>
@@ -27,7 +29,7 @@ namespace slavaCryptoApp
             "PPjeMvy+notGffb/J67Pr4ryi6F2hpkBOIvr6Le+pnm3eepbR8to+hNKpWUQ6uXZSCTbLQ==" +
             "</InverseQ><D>cqJj7QXi8q/JmWo04FvdHQtMmoozVl+04m9DBfSHLjrWeHiltYY/jkCODeg8KPpqg2qiOt3T7QzQvyK8HxwRXlR3l4o6J/73k" +
             "2LwbHAdVk2UG+yzi0Q0uCZPYqv+WDsW7KylZhR/SI4j9qFDZo+8L7NFoBPV" +
-            "3KlSlhhQTx+c560=</D></RSAKeyValue>";
+            "3KlSlhhQTx+c560=</D></RSAKeyValue>"; // однажды мы его сгенерировали, и он должен всегда оставаться таким.
         private static byte[] Signature { get; set; } = null;
         private static string LastSignedFileName { get; set; } = null;
         public MainWindow()
@@ -36,17 +38,13 @@ namespace slavaCryptoApp
             myRSA = RSA.Create();
             myRSA.FromXmlString(SecretKeyRSAXML);
         }
-
-
-
-        /*КАЖЕТСЯ ЗДЕСЬ ПРОИСХОДИТ КАКАЯ-ТО ДИЧЬ!(ПОСМОТРИ СОДЕРЖИМОЕ ФАЙЛИКА)*/
         private void WriteInFile(string path,byte [] signature,string contentToWrite)
         {
             string signatureBase64 = Convert.ToBase64String(signature);
             using (var writer = new StreamWriter(new FileStream(path, FileMode.Create),Encoding.Unicode))
             {
                 writer.WriteLine(signatureBase64);
-                writer.Write(" ");
+                writer.Write(" ");// <--------- разделитель.
                 writer.WriteLine(contentToWrite);
             }
         }
@@ -91,6 +89,61 @@ namespace slavaCryptoApp
             }
         }
 
+        public byte[] ImageToByteArray(Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
+        private byte[] EncryptPicture(string path)
+        {
+            byte[] resultArray;
+
+            var myImage = Image.FromFile(path);
+            byte[] arrayImage = ImageToByteArray(myImage);
+
+            
+
+            using (var myAes = Aes.Create())
+            {
+                var encryptor = myAes.CreateDecryptor();
+
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            //Write all data to the stream.
+                            swEncrypt.Write(Convert.ToBase64String(arrayImage));
+                        }
+                        resultArray = msEncrypt.ToArray();
+                    }
+                }
+            }
+
+
+                return null;
+        }
+
+        private void EncryptPictureButtonClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog()
+            {
+                Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png"
+            };
+            dlg.ShowDialog();
+            if (dlg.FileName != string.Empty)
+            {
+
+                byte[] encryptedPicture = EncryptPicture(dlg.FileName);
+            }
+            else return;
+
+        }
         private void VerifyFileButtonClick(object sender, RoutedEventArgs e)
         {
             inputSignatureForSign inputWindow = new inputSignatureForSign(myRSA);

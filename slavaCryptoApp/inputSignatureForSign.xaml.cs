@@ -20,15 +20,7 @@ namespace slavaCryptoApp
             myRSA = _myRSA;
         }
 
-        private byte [] ReadSignatureFromSignedFile(string path)
-        {
-
-            byte[] resultArray = new byte[ myRSA.KeySize / 8];
-
-            using (var file = new FileStream(path, FileMode.Open))
-                file.Read(resultArray, 0, resultArray.Length);// на самом деле тут не уверен, что правильный размер указал везде.
-            return resultArray;
-        }
+        
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
             // xmlSignature.Text;
@@ -39,6 +31,7 @@ namespace slavaCryptoApp
                 {
                     Filter = "(*.txt)|*.txt"
                 };
+
                 dlg.ShowDialog();
                 if (dlg.FileName != string.Empty)
                 {

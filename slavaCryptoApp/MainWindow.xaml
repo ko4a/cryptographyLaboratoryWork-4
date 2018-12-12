@@ -3,47 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:slavaCryptoApp"
+
         mc:Ignorable="d"
-        Title="Лабораторная работа по криптографии №4" Height="500" Width="500">
-    <Grid >
+        Title="Лабораторная работа по криптографии №4" Height="350" Width="350">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush>
+                <ImageBrush.ImageSource>ГИПНОЗ.jpg</ImageBrush.ImageSource>
+            </ImageBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  />
-            <ColumnDefinition  />
+            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="89*" />
-            <RowDefinition Height="380*"  />
+            <RowDefinition  />
+            <RowDefinition  />
         </Grid.RowDefinitions>
 
         <Button Background="Red" 
-                Margin="10,16,120,50" 
+                Margin="10,41,10,91" 
                 Click="ShowMeKeysButtonClick" 
                 x:Name ="ShowMeKeysButton" 
                 Grid.Column="0" 
                 Grid.Row="0"
-                Content="Посмотреть ключи" 
+                Content="Посмотреть ключи RSA" 
                 />
 
         <Button x:Name="SignFileButton"
                 Click="SignFileButtonClick"
                 Grid.Column="1"
                 Grid.Row="0"
-                Margin="120,16,10,50"
+                Margin="10,41,10,91"
                 Content="Подписать файл."
                 Background="Pink"
                 />
 
- 
+
         <Button x:Name="VerifyFileButton"
             Click="VerifyFileButtonClick"
-            Grid.ColumnSpan="2"
-            Grid.Row="0"
-            Margin="129,44,127,22"
+            Margin="59,98,59,35"
             Content="Проверить файл"
-            Background="YellowGreen"
+            Background="YellowGreen" Grid.ColumnSpan="2"
                 />
-
+        <Button x:Name="EncryptPictureButton"
+            Click="EncryptPictureButtonClick"
+            Margin="59,0,59,128"
+            Content="Зашифровать картинку AES"
+            Background="Gold" Grid.ColumnSpan="2" Grid.Row="1"
+                />
 
 
     </Grid>
