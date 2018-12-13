@@ -22,35 +22,40 @@
         </Grid.RowDefinitions>
 
         <Button Background="Red" 
-                Margin="10,41,10,91" 
+                Margin="59,37,59,95" 
                 Click="ShowMeKeysButtonClick" 
                 x:Name ="ShowMeKeysButton" 
                 Grid.Column="0" 
                 Grid.Row="0"
-                Content="Посмотреть ключи RSA" 
+                Content="Посмотреть ключи RSA" Grid.ColumnSpan="2" 
                 />
 
         <Button x:Name="SignFileButton"
                 Click="SignFileButtonClick"
-                Grid.Column="1"
                 Grid.Row="0"
-                Margin="10,41,10,91"
+                Margin="59,80,59,52"
                 Content="Подписать файл."
-                Background="Pink"
+                Background="Pink" Grid.ColumnSpan="2"
                 />
 
 
         <Button x:Name="VerifyFileButton"
             Click="VerifyFileButtonClick"
-            Margin="59,98,59,35"
+            Margin="59,123,59,10"
             Content="Проверить файл"
             Background="YellowGreen" Grid.ColumnSpan="2"
                 />
         <Button x:Name="EncryptPictureButton"
             Click="EncryptPictureButtonClick"
-            Margin="59,0,59,128"
+            Margin="59,10,59,122"
             Content="Зашифровать картинку AES"
             Background="Gold" Grid.ColumnSpan="2" Grid.Row="1"
+                />
+        <Button x:Name="DecryptPictureButton"
+            Click="DecryptPictureButtonClick"
+            Margin="59,51,59,81"
+            Content="Расшифровать картинку AES"
+            Background="Tan" Grid.ColumnSpan="2" Grid.Row="1"
                 />
 
 

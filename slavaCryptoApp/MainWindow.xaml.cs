@@ -90,12 +90,10 @@ namespace slavaCryptoApp
             }
         }
 
-       
-
-     
-
-
-
+        private void DecryptPictureButtonClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
         private void EncryptPictureButtonClick(object sender, RoutedEventArgs e)
         {
                 InputKeyRSAOtherGroup window = new InputKeyRSAOtherGroup();

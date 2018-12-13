@@ -66,7 +66,7 @@ namespace slavaCryptoApp
                 $"IV:{Convert.ToBase64String(myAes.IV)} \r\n \r\n \r\n \r\n " +
                 $"KEY:{Convert.ToBase64String(myAes.Key)}\r\n \r\n \r\n \r\n" +
                 $"Encrypted Key: {Convert.ToBase64String(encryptedAesKey)} \r\n \r\n \r\n \r\n" +
-                $"RSA \r\n \r\n \r\n \r\n SECRET+PUBLIC Key:{myRSA.ToXmlString(true)} \r\n \r\n \r\n \r\n" +
+                $"RSA \r\n \r\n \r\n \r\n PUBLIC Key:{myRSA.ToXmlString(false)} \r\n \r\n \r\n \r\n" +
                 $"Encrypted Picture(only Aes): {Convert.ToBase64String(resultArray)}");
 
             return resultArray;
@@ -88,9 +88,8 @@ namespace slavaCryptoApp
 
                 if (RSATextBoxKEY.Text != string.Empty)
                 {
-                    byte[] encryptedPicture = EncryptPicture(dlg.FileName, RSATextBoxKEY.Text);
+                    EncryptPicture(dlg.FileName, RSATextBoxKEY.Text);
                     Close();
-                    // MessageBox.Show($"{Convert.ToBase64String(encryptedPicture)}"); // отладочная информация
                 }
                 else return;
             }

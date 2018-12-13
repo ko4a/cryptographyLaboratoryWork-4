@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>3856396-buildings-cabin-house-log-winter_112769.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -122,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ГИПНОЗ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="3856396-buildings-cabin-house-log-winter_112769.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
