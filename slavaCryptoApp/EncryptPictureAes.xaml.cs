@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 
+
 namespace slavaCryptoApp
 {
     /// <summary>
@@ -66,7 +67,9 @@ namespace slavaCryptoApp
                 $"IV:{Convert.ToBase64String(myAes.IV)} \r\n \r\n \r\n \r\n " +
                 $"KEY:{Convert.ToBase64String(myAes.Key)}\r\n \r\n \r\n \r\n" +
                 $"Encrypted Key: {Convert.ToBase64String(encryptedAesKey)} \r\n \r\n \r\n \r\n" +
-                $"RSA \r\n \r\n \r\n \r\n PUBLIC Key:{myRSA.ToXmlString(false)} \r\n \r\n \r\n \r\n" +
+                $"RSA \r\n \r\n \r\n \r\n PUBLIC Key:{myRSA.ToXmlString(false)}\r\n " +
+                $"ОБРАТИТЕ ВНИМАНИЕ, ЧТО ЭТИМ КЛЮЧОМ ВЫ НЕ МОЖЕТЕ НИЧЕГО РАСШИФРОВАТЬ. ЭТО ПУБЛИЧНЫЙ КЛЮЧ!!!!!" +
+                $"  \r\n \r\n \r\n \r\n" +
                 $"Encrypted Picture(only Aes): {Convert.ToBase64String(resultArray)}");
 
             return resultArray;

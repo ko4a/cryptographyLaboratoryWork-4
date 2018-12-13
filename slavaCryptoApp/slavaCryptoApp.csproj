@@ -62,6 +62,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DecryptPictureAes.xaml.cs">
+      <DependentUpon>DecryptPictureAes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DrawPicture.xaml.cs">
+      <DependentUpon>DrawPicture.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VerifySignatureWindow.xaml.cs">
       <DependentUpon>VerifySignatureWindow.xaml</DependentUpon>
     </Compile>
@@ -71,6 +77,14 @@
     <Compile Include="EncryptPictureAes.xaml.cs">
       <DependentUpon>EncryptPictureAes.xaml</DependentUpon>
     </Compile>
+    <Page Include="DecryptPictureAes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DrawPicture.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VerifySignatureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

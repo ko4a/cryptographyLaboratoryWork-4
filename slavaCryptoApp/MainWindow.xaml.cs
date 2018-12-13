@@ -92,7 +92,8 @@ namespace slavaCryptoApp
 
         private void DecryptPictureButtonClick(object sender, RoutedEventArgs e)
         {
-            
+            DecryptPictureAes window = new DecryptPictureAes();
+            window.Show();
         }
         private void EncryptPictureButtonClick(object sender, RoutedEventArgs e)
         {
