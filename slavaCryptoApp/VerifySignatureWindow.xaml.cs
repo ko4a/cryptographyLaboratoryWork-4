@@ -11,10 +11,10 @@ namespace slavaCryptoApp
     /// <summary>
     /// Логика взаимодействия для inputSignatureForSign.xaml
     /// </summary>
-    public partial class InputSignatureForSign : Window
+    public partial class VerifySignatureWindow : Window
     {
         private static RSA myRSA;
-        public InputSignatureForSign(RSA _myRSA)
+        public VerifySignatureWindow(RSA _myRSA)
         {
             InitializeComponent();
             myRSA = _myRSA;
@@ -23,7 +23,6 @@ namespace slavaCryptoApp
         
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
-            // xmlSignature.Text;
             if (signature.Text != string.Empty)
             {
                 MessageBox.Show("Выберите файл, который вы хотите верифицировать!");

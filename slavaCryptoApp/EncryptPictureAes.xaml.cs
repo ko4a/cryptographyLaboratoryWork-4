@@ -20,10 +20,10 @@ namespace slavaCryptoApp
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class InputKeyRSAOtherGroup : Window
+    public partial class EncryptPictureAes : Window
     {
 
-        public InputKeyRSAOtherGroup()
+        public EncryptPictureAes()
         {
             InitializeComponent();
         }

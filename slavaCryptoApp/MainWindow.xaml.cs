@@ -96,14 +96,16 @@ namespace slavaCryptoApp
         }
         private void EncryptPictureButtonClick(object sender, RoutedEventArgs e)
         {
-                InputKeyRSAOtherGroup window = new InputKeyRSAOtherGroup();
+                EncryptPictureAes window = new EncryptPictureAes();
                 window.ShowDialog();
         }
+
         private void VerifyFileButtonClick(object sender, RoutedEventArgs e)
         {
-            InputSignatureForSign inputWindow = new InputSignatureForSign(myRSA);
+            VerifySignatureWindow inputWindow = new VerifySignatureWindow(myRSA);
             inputWindow.Show();
         }
+
         private void ShowMeKeysButtonClick(object sender, RoutedEventArgs e)
         {
             KeysWindow myKeysWindow = new KeysWindow(myRSA.ToXmlString(true),myRSA.ToXmlString(false));

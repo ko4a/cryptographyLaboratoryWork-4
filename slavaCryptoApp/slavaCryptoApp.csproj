@@ -62,16 +62,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="InputSignatureForSign.xaml.cs">
-      <DependentUpon>InputSignatureForSign.xaml</DependentUpon>
+    <Compile Include="VerifySignatureWindow.xaml.cs">
+      <DependentUpon>VerifySignatureWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="KeysWindow.xaml.cs">
       <DependentUpon>KeysWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InputKeyRSAOtherGroup.xaml.cs">
-      <DependentUpon>InputKeyRSAOtherGroup.xaml</DependentUpon>
+    <Compile Include="EncryptPictureAes.xaml.cs">
+      <DependentUpon>EncryptPictureAes.xaml</DependentUpon>
     </Compile>
-    <Page Include="InputSignatureForSign.xaml">
+    <Page Include="VerifySignatureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,7 +91,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="InputKeyRSAOtherGroup.xaml">
+    <Page Include="EncryptPictureAes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
