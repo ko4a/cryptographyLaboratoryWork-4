@@ -45,7 +45,6 @@ namespace slavaCryptoApp
             using (var writer = new StreamWriter(new FileStream(path, FileMode.Create),Encoding.Unicode))
             {
                 writer.WriteLine(signatureBase64);
-                writer.Write(" ");// <--------- разделитель.
                 writer.WriteLine(contentToWrite);
             }
         }
@@ -66,7 +65,8 @@ namespace slavaCryptoApp
 
                 using (var fileToSign = new FileStream(dlg.FileName, FileMode.Open))
                 {
-                    Signature = myRSA.SignData(fileToSign, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+                    Signature = myRSA.SignData(Encoding.ASCII.GetBytes(fileToSignContent), HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+
                 }
                 LastSignedFileName = dlg.FileName;
                 MessageBox.Show($"ФАЙЛ {dlg.FileName} подписан.\nВыберите файл, куда сохранить результат.");

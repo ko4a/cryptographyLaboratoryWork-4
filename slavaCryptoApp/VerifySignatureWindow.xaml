@@ -12,8 +12,8 @@
             <RowDefinition Height="123*"/>
             <RowDefinition Height="26*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" FontStyle="Italic" Text="Введите подпись в base64!"></TextBlock>
-        <TextBox Grid.Row="1" Background="WhiteSmoke" TextWrapping="Wrap" x:Name="signature"></TextBox>
+        <TextBlock Grid.Row="0" FontStyle="Italic" Text="Введите XML ключ от RSA!"></TextBlock>
+        <TextBox Grid.Row="1" Background="WhiteSmoke" TextWrapping="Wrap" x:Name="RSAKeyVerify"></TextBox>
         <Button Background="Wheat" Click="ButtonClick" Content="ТЫК" Grid.Row="2"></Button>
     </Grid>
 </Window>
